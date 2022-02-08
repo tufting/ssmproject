@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置数据源，交给Spring去做-->
+
+    <settings>
+        <!--配置标准的日志工厂-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--配置日志-->
+        <!--<setting name="logImpl" value="LOG4J"/>-->
+    </settings>
+
+    <!--起别名-->
+    <typeAliases>
+        <package name="com.kuang.pojo"/>       <!--把这个包下的所有实体类都设置默认的别名-->
+    </typeAliases>
+
+
+    <!--加载映射-->
+    <mappers>
+        <!--如下，多个xxxMapper.xml需要配置多次-->
+        <!--<mapper resource="com/kuang/dao/BooksMapper.xml"></mapper>-->
+        <!--如下，用package扫包，把mapper包下的所有xml都加载进来，作用和上面一样，只需配置一行-->
+        <!--<package name="com.kuang.dao"/>-->
+        <mapper class="com.kuang.dao.BookMapper"/>
+    </mappers>
+
+</configuration>
